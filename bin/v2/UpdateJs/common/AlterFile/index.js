@@ -2,7 +2,6 @@ import readFile from "../readFile.js";
 import checkDuplicate from "./checkDuplicate.js";
 import findInsertIndex from "./findInsertIndex.js";
 import writeFile from "../writeFile.js";
-import validateAppJsPath from "../../validations/validateAppJsPath.js";
 
 import buildUpdatedContent from "./buildUpdatedContent.js";
 

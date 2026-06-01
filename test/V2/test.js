@@ -6,7 +6,7 @@ const startFunc = async () => {
 
     await index({
         showLog: true,
-        endpoint: "Alter",
+        jsFilePath: process.cwd() + "/end-points.js",
         inCheckLines: checkLines
     });
 };
