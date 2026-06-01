@@ -4,7 +4,7 @@ import checkLines from "./checkLines.json" with {type: "json"};
 import validateEndpoint from "./validations/validateEndpoint.js";
 import alterFile from "./common/AlterFile/index.js";
 
-const updateAppJs = ({ inEndPointsJsPath, actionName, inCheckLines,
+const updateAppJs = ({ inJsFilePath, actionName, inCheckLines,
     showLog = false }) => {
 
     validateEndpoint({ endpoint: actionName });
@@ -13,7 +13,7 @@ const updateAppJs = ({ inEndPointsJsPath, actionName, inCheckLines,
     // console.log("bbbbbbbbbbbb : ", localCheckLines);
 
     alterFile({
-        jsFilePath: inEndPointsJsPath,
+        jsFilePath: inJsFilePath,
         toInsertLine: localCheckLines.importLines.toInsertLine,
         duplicationCheck: localCheckLines.importLines.duplicationCheck,
         insertAfter: localCheckLines.importLines.insertAfter,
@@ -21,7 +21,7 @@ const updateAppJs = ({ inEndPointsJsPath, actionName, inCheckLines,
     });
 
     alterFile({
-        jsFilePath: inEndPointsJsPath,
+        jsFilePath: inJsFilePath,
         toInsertLine: localCheckLines.useLines.toInsertLine,
         duplicationCheck: localCheckLines.useLines.duplicationCheck,
         insertAfter: localCheckLines.useLines.insertAfter,
