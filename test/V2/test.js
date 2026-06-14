@@ -1,13 +1,15 @@
 import index from "../../index.js";
 import checkLines from "./checkLines.json" with {type: "json"};
 
+const command = "ShowAll";
+
 const startFunc = async () => {
-    // console.log("checkLines : ", checkLines);
+    const matched = checkLines.find(x => x.cmd === command);
 
     await index({
         showLog: true,
         jsFilePath: process.cwd() + "/end-points.js",
-        inCheckLines: checkLines
+        inCheckLines: matched.endPointsJs
     });
 };
 
