@@ -5,14 +5,6 @@ import writeFile from "../writeFile.js";
 
 import buildUpdatedContent from "./buildUpdatedContent.js";
 
-const validateDuplicate = ({ content, jsFilePath, duplicationCheck }) => {
-    return checkDuplicate({
-        inContent: content,
-        inFilePath: jsFilePath,
-        inSearchText: duplicationCheck
-    });
-};
-
 const locateInsertPoint = ({ content, insertAfter }) => {
     return findInsertIndex({
         inContent: content,
@@ -29,7 +21,21 @@ const alterFile = ({
 }) => {
     const content = readFile(jsFilePath);
 
-    const duplicateInfo = validateDuplicate({ content, jsFilePath, duplicationCheck });
+    const duplicateInfo = checkDuplicate({
+        inContent: content,
+        inFilePath: jsFilePath,
+        inSearchText: duplicationCheck
+    });
+
+    if (duplicateInfo.found) {
+        if (showLog) {
+            console.log(
+                `Duplicate found at line ${duplicateInfo.lineNumber}`
+            );
+        }
+
+        return duplicateInfo;
+    };
 
     // const index = locateInsertPoint({ content, importInsertAfter });
     const insertInfo = locateInsertPoint({
