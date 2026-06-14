@@ -1,18 +1,19 @@
 {
     "importLines": {
-        "toInsertLine": "import funcFromShowAll from './ShowAll/controller.js';",
-        "duplicationCheck": "from './ShowAll/controller.js'",
+        "toInsertLine": "import { router as routerFrom<startEndPoint> } from './<startEndPoint>/routes.js';",
+        "duplicationCheck": "from './<startEndPoint>/routes.js';",
         "insertAfter": [
-            "import funcFrom",
+            "import routerFrom",
+            "import { router as routerFrom",
             "import express"
         ]
     },
     "useLines": {
-        "toInsertLine": "router.get('/ShowAll', (req, res) => funcFromShowAll({ res, inTablePath: tablePath }));",
-        "duplicationCheck": "router.use('/ShowAll'",
+        "toInsertLine": "app.use('/<startEndPoint>', routerFrom<startEndPoint>);",
+        "duplicationCheck": "app.use('/<startEndPoint>'",
         "insertAfter": [
-            "router.",
-            "const router = "
+            "app.",
+            "const app = "
         ]
     }
 }
