@@ -21,7 +21,7 @@ sequenceDiagram
     participant Callee as GitHub Actions (notify-dependents.yml)
     participant DepRepo as Dependent Repo (express-fix-endpoints-get-js)
 
-    Developer->>GH: Create & Publish Release
+    Developer->>GH: Create Release OR Manual Trigger
     activate GH
     GH->>GH: Run build & test jobs
     GH->>NPM: Publish package via npm-publish job
@@ -48,8 +48,8 @@ sequenceDiagram
 
 ## Detailed Step Description
 
-### Step 1: Release Trigger
-The story begins when a new release is created on GitHub. The event triggers the caller workflow: [npm-publish.yml](file:///d:/KeshavSoftRepos/2026-06-28/express-fix-any-js/.github/workflows/npm-publish.yml).
+### Step 1: Trigger (Release Created or Manual Dispatch)
+The story begins when either a new release is created on GitHub, or the workflow is triggered manually (using the **"Run workflow"** button in the GitHub Actions tab). Either event triggers the caller workflow: [npm-publish.yml](file:///d:/KeshavSoftRepos/2026-06-28/express-fix-any-js/.github/workflows/npm-publish.yml).
 
 ### Step 2: Build & Test
 The `build` job runs on `ubuntu-latest`. It sets up Node.js (version 20), installs dependencies via `npm ci`, and verifies that the package build is correct.
