@@ -1,7 +1,7 @@
 # EndPoints Fix
 
 Utility for automatically maintaining Express route files.
-started git actions also
+started git actions also to https://github.com/keshavsoft/express-fix-endpoints-get-js
 
 ## Purpose
 
