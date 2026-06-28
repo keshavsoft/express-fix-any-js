@@ -37,7 +37,6 @@ const alterFile = ({
         return duplicateInfo;
     };
 
-    // const index = locateInsertPoint({ content, importInsertAfter });
     const insertInfo = locateInsertPoint({
         content,
         insertAfter
