@@ -10,8 +10,14 @@ const startFunc = (obj) => {
         if (typeof section !== "object" || section === null || Array.isArray(section)) {
             throw new TypeError(`inCheckLines.${key} must be an object.`);
         }
-        if (typeof section.toInsertLine !== "string") {
-            throw new TypeError(`inCheckLines.${key}.toInsertLine must be a string.`);
+        if (key === "importLines") {
+            if (typeof section.toInsertLine !== "string" && !Array.isArray(section.toInsertLine)) {
+                throw new TypeError(`inCheckLines.importLines.toInsertLine must be a string or an array.`);
+            }
+        } else {
+            if (typeof section.toInsertLine !== "string") {
+                throw new TypeError(`inCheckLines.${key}.toInsertLine must be a string.`);
+            }
         }
         if (typeof section.duplicationCheck !== "string") {
             throw new TypeError(`inCheckLines.${key}.duplicationCheck must be a string.`);
