@@ -1,14 +1,21 @@
 import getLatestVersion from "./bin/core/getLatestVersion.js";
-import { createRequire } from "module";
+import startV6 from "./bin/v6/start.js";
+import startV7 from "./bin/v7/start.js";
 
-const require = createRequire(import.meta.url);
+const runners = {
+    v6: startV6,
+    v7: startV7
+};
 
 const load = ({ jsFilePath, inCheckLines, showLog }) => {
     const v = getLatestVersion();
+    const runner = runners[v];
 
-    const module = require(`./bin/${v}/start.js`);
+    if (!runner) {
+        throw new Error(`Unsupported version: ${v}`);
+    }
 
-    module.default({ jsFilePath, inCheckLines, showLog });
+    runner({ jsFilePath, inCheckLines, showLog });
 };
 
 export default load;

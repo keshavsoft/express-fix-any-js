@@ -9,7 +9,9 @@
     "node",
     "project-generator"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "express-check-any-for-import": "file:../ks1/express-check-any-for-import"
+  },
   "type": "module",
   "exports": {
     ".": "./index.js"
