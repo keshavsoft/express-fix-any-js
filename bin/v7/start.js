@@ -12,7 +12,7 @@ const run = ({ jsFilePath, inCheckLines, showLog }) => {
 
   if (input.cmd === "--help" || input.cmd === "-h" || input.cmd === "help") return showUsage(version);
 
-  updateJs(input);
+  return updateJs(input);
 };
 
 export default run;

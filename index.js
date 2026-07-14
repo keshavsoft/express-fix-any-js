@@ -15,7 +15,7 @@ const load = ({ jsFilePath, inCheckLines, showLog }) => {
         throw new Error(`Unsupported version: ${v}`);
     }
 
-    runner({ jsFilePath, inCheckLines, showLog });
+    return runner({ jsFilePath, inCheckLines, showLog });
 };
 
 export default load;
