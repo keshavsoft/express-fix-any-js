@@ -1,6 +1,6 @@
 {
   "name": "express-fix-any-js",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "description": "CLI to build for appjs, the endpoints",
   "keywords": [
     "cli",
