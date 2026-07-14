@@ -1,20 +1,13 @@
-const checkUseDuplicate = ({
-    inContent,
-    inFilePath,
-    inSearchText
-}) => {
-    const lines = inContent.split("\n");
+import { isImportPresent } from "express-check-any-for-import";
 
-    const lineIndex = lines.findIndex(line =>
-        line.includes(inSearchText)
-    );
+const checkUseDuplicate = ({ inContent, inFilePath, inSearchText }) => {
+    const cleanText = inSearchText.match(/['"]([^'"]+)['"]/)?.[1] || inSearchText;
+    const found = isImportPresent(inContent, cleanText) || inContent.includes(inSearchText);
 
     return {
-        found: lineIndex !== -1,
+        found,
         filePath: inFilePath,
-        lineNumber: lineIndex !== -1
-            ? lineIndex + 1
-            : null
+        lineNumber: found ? inContent.split("\n").findIndex(line => line.includes(cleanText)) + 1 : null
     };
 };
 

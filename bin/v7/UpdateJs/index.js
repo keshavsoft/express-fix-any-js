@@ -8,7 +8,7 @@ const updateAppJs = ({ inJsFilePath, inCheckLines,
     
     validateCheckLines(localCheckLines);
 
-    alterFile({
+    const importResult = alterFile({
         jsFilePath: inJsFilePath,
         toInsertLine: localCheckLines.importLines.toInsertLine,
         duplicationCheck: localCheckLines.importLines.duplicationCheck,
@@ -16,7 +16,7 @@ const updateAppJs = ({ inJsFilePath, inCheckLines,
         showLog
     });
 
-    alterFile({
+    const useResult = alterFile({
         jsFilePath: inJsFilePath,
         toInsertLine: localCheckLines.useLines.toInsertLine,
         duplicationCheck: localCheckLines.useLines.duplicationCheck,
@@ -24,7 +24,7 @@ const updateAppJs = ({ inJsFilePath, inCheckLines,
         showLog
     });
 
-    return false;
+    return { importResult, useResult };
 };
 
 export default updateAppJs;

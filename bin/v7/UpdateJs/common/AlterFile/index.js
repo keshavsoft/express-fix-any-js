@@ -50,6 +50,12 @@ const alterFile = ({
     });
 
     writeFile(jsFilePath, updated);
+
+    return {
+        found: false,
+        filePath: jsFilePath,
+        lineNumber: null
+    };
 };
 
 export default alterFile;
