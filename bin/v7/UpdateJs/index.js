@@ -1,14 +1,16 @@
-import alterFile from "./common/AlterFile/index.js";
+// import alterFile from "./common/AlterFile/index.js";
 import validateCheckLines from "./validateCheckLines.js";
+import alterFileForImport from "./common/AlterFileForImport/index.js";
+import alterFileForConsume from "./common/AlterFileForConsume/index.js";
 
 const updateAppJs = ({ inJsFilePath, inCheckLines,
     showLog = false }) => {
 
     const localCheckLines = inCheckLines;
-    
+
     validateCheckLines(localCheckLines);
 
-    const importResult = alterFile({
+    const importResult = alterFileForImport({
         jsFilePath: inJsFilePath,
         toInsertLine: localCheckLines.importLines.toInsertLine,
         duplicationCheck: localCheckLines.importLines.duplicationCheck,
@@ -16,7 +18,7 @@ const updateAppJs = ({ inJsFilePath, inCheckLines,
         showLog
     });
 
-    const useResult = alterFile({
+    const useResult = alterFileForConsume({
         jsFilePath: inJsFilePath,
         toInsertLine: localCheckLines.useLines.toInsertLine,
         duplicationCheck: localCheckLines.useLines.duplicationCheck,
