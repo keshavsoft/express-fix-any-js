@@ -4,7 +4,8 @@ const startFunc = ({
     toInsertLine,
     insertAfter
 }) => {
-    const before = content.slice(0, insertInfo.index);
+    const index = insertInfo.index === -1 ? content.length : insertInfo.index;
+    const before = content.slice(0, index);
 
     const isFirstInsert =
         insertInfo.matchedPattern === insertAfter[insertAfter.length - 1];
@@ -14,14 +15,14 @@ const startFunc = ({
             (isFirstInsert ? "\n" : "") +
             toInsertLine.join("\n") +
             "\n" +
-            content.slice(insertInfo.index);
+            content.slice(index);
     }
 
     return before +
         (isFirstInsert ? "\n" : "") +
         toInsertLine +
         "\n" +
-        content.slice(insertInfo.index);
+        content.slice(index);
 };
 
 export default startFunc;
