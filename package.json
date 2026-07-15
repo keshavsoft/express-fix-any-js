@@ -1,6 +1,6 @@
 {
   "name": "express-fix-any-js",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "description": "CLI to build for appjs, the endpoints",
   "keywords": [
     "cli",
@@ -10,7 +10,7 @@
     "project-generator"
   ],
   "dependencies": {
-    "express-check-any-for-import": "^1.4.6"
+    "express-check-any-for-import": "^1.4.7"
   },
   "type": "module",
   "exports": {
