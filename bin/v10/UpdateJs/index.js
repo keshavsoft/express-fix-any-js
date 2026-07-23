@@ -1,4 +1,3 @@
-// import alterFile from "./common/AlterFile/index.js";
 import validateCheckLines from "./validateCheckLines.js";
 import alterFileForImport from "./common/AlterFileForImport/index.js";
 import alterFileForConsume from "./common/AlterFileForConsume/index.js";
@@ -18,15 +17,17 @@ const updateAppJs = ({ inJsFilePath, inCheckLines,
         showLog
     });
 
-    const useResult = alterFileForConsume({
-        jsFilePath: inJsFilePath,
-        toInsertLine: localCheckLines.useLines.toInsertLine,
-        duplicationCheck: localCheckLines.useLines.duplicationCheck,
-        insertAfter: localCheckLines.useLines.insertAfter,
-        showLog
-    });
+    // const useResult = alterFileForConsume({
+    //     jsFilePath: inJsFilePath,
+    //     toInsertLine: localCheckLines.useLines.toInsertLine,
+    //     duplicationCheck: localCheckLines.useLines.duplicationCheck,
+    //     insertAfter: localCheckLines.useLines.insertAfter,
+    //     showLog
+    // });
 
-    return { importResult, useResult };
+    // return { importResult, useResult };
+
+    return { importResult };
 };
 
 export default updateAppJs;
