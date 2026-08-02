@@ -16,4 +16,15 @@ const findImportLinesIndex = ({ inStory }) => {
     return lastLine?.lineNumber;
 };
 
-export { findImportLinesFromNpmIndex, findImportLinesIndex };
+const findVariablesDeclareHereLinesIndex = ({ inStory }) => {
+    const variablesDeclareHereLines = inStory?.lines?.variablesDeclareHereLines;
+
+    const lastLine = variablesDeclareHereLines[variablesDeclareHereLines.length - 1];
+
+    return lastLine?.lineNumber;
+};
+
+export {
+    findImportLinesFromNpmIndex, findImportLinesIndex,
+    findVariablesDeclareHereLinesIndex
+};

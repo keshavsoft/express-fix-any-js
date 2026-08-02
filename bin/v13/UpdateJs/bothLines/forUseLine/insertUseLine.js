@@ -1,12 +1,17 @@
 import fs from 'fs';
 
-import { findImportLinesFromNpmIndex, findImportLinesIndex } from "../forInsertIndex.js";
+import {
+    findImportLinesFromNpmIndex, findImportLinesIndex,
+    findVariablesDeclareHereLinesIndex
+} from "../forInsertIndex.js";
 
 const findInsertIndex = ({ inStory }) => {
     const importLines = findImportLinesIndex({ inStory });
     const importLinesFromNpm = findImportLinesFromNpmIndex({ inStory });
+    const variablesDeclareHereLines = findVariablesDeclareHereLinesIndex({ inStory });
 
-    return importLines ? importLines : importLinesFromNpm;
+    // findVariablesDeclareHereLinesIndex
+    return importLines ? importLines : variablesDeclareHereLines;
 };
 
 function build(template, parts) {
