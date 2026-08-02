@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import defaultFunc from '../../../index.js';
+import defaultFunc from 'pattern-collector-anyjs-story';
 import insertUseLine from "./insertUseLine.js";
 import insertImportLine from "./insertImportLine.js";
 
