@@ -16,7 +16,7 @@ const startFunc = ({ inFolderNameToInsert, inFileType, inJsPath }) => {
 
     insertImportLine({
         inStory: story,
-        fileContent,
+        fileContent, extractRegex: story?.extractRegex,
         filePath: localJsPath, inFolderNameToInsert: folderNameToInsert,
         inTemplate1: story.regexForPullLinesStory.importRegex.reverseTemplate,
         inTemplate: story.reverseTemplates.importRegex,

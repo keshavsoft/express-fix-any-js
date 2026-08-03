@@ -20,14 +20,40 @@ const findImportLinesIndex = ({ inStory }) => {
     return lastLine?.lineNumber;
 };
 
-const findInsertIndex = ({ inStory }) => {
-    const importLines = findImportLinesIndex({ inStory });
-    const importLinesFromNpm = findImportLinesFromNpmIndex({ inStory });
+const findInsertIndex = ({ onlyIndexesValues, extractRegex }) => {
+    let insertIndex;
 
-    return importLines ? importLines : importLinesFromNpm;
+    mainLoop: for (const element of extractRegex?.toInsertIndex?.import) {
+        const splitValues = element.split(".");
+        const firstValue = splitValues[0];
+        const secondValue = splitValues[1];
+
+        if (splitValues.length > 1) {
+            if (firstValue in onlyIndexesValues) {
+                if (onlyIndexesValues[firstValue]) {
+                    if (secondValue in onlyIndexesValues[firstValue]) {
+                        insertIndex = onlyIndexesValues[firstValue][secondValue];
+                        break mainLoop;
+                    };
+                };
+            };
+        } else {
+            switch (element) {
+                case "first":
+                    insertIndex = 0;
+                    break mainLoop;
+                    break;
+
+                default:
+                    break;
+            }
+        };
+    };
+
+    return insertIndex;
 };
 
-const startFunc = ({ inStory, fileContent, filePath,
+const startFunc = ({ inStory, fileContent, filePath, extractRegex,
     inFolderNameToInsert, lineType = "importLines", inTemplate, inParts }) => {
 
     const foundUseLinesStory = inStory.linesStory[lineType].find(element => {
@@ -44,7 +70,10 @@ const startFunc = ({ inStory, fileContent, filePath,
         // const lastLine = inStory.lines[lineType][inStory.lines[lineType].length - 1];
         // const insertAtIndex = lastLine.lineNumber;
 
-        const insertAtIndex = findInsertIndex({ inStory });
+        const insertAtIndex = findInsertIndex({
+            onlyIndexesValues: inStory?.onlyIndexesValues,
+            extractRegex
+        });
 
         lines.splice(insertAtIndex, 0, newLine);
 

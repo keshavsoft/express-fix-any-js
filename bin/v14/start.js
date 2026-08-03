@@ -1,8 +1,11 @@
-import updateJs from "./UpdateJs/index.js";
+import bothLines from './bothLines/index.js';
 
-const run = (args) => {
+const startFunc = ({ inFolderNameToInsert, inFileType, jsFilePath }) => {
 
-  return updateJs(args);
+    return bothLines({
+        inFolderNameToInsert, inFileType,
+        inJsPath: jsFilePath
+    });
 };
 
-export default run;
+export default startFunc;
