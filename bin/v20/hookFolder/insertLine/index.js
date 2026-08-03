@@ -7,10 +7,10 @@ function build(template, parts) {
 };
 
 const startFunc = ({ linesStory, fileContent, filePath, importRegex, onlyIndexesValues,
-    inFolderNameToInsert, presentKey, inTemplate, inParts }) => {
+    inValueToInsert, presentKey, inTemplate, inParts }) => {
 
     const foundUseLinesStory = linesStory[presentKey].find(element => {
-        return element.part2 === inFolderNameToInsert;
+        return element.part2 === inValueToInsert;
     });
 
     if (foundUseLinesStory) {
