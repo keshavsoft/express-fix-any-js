@@ -113,6 +113,17 @@ For detailed developer notes, architectural mappings, and code analyses:
 
 ---
 
+## 🌐 Documentation
+
+Visit the official documentation portal for detailed guides, workflow diagrams, architecture explanations, and API references.
+
+[![Documentation](https://img.shields.io/badge/📘-Developer_Documentation-2563eb?style=for-the-badge)](https://keshavsoft.github.io/express-fix-any-js/)
+
+**Documentation Portal:**  
+https://keshavsoft.github.io/express-fix-any-js/
+
+---
+
 ## ⚖️ License
 
 MIT License. Designed with ❤️ by [KeshavSoft](https://github.com/keshavsoft).
