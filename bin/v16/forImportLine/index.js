@@ -22,7 +22,8 @@ const startFunc = ({ inFolderNameToInsert, inFileType, inJsPath }) => {
             filePath: localJsPath, inFolderNameToInsert: folderNameToInsert,
             inTemplate1: story.regexForPullLinesStory.importRegex.reverseTemplate,
             inTemplate: story.reverseTemplates.importRegex,
-            inParts: [`${story.variablesConnection}${folderNameToInsert}`, folderNameToInsert]
+            inParts: [`${story.variablesConnection}${folderNameToInsert}`, folderNameToInsert],
+            fileType: inFileType
         });
 
     } catch (error) {
