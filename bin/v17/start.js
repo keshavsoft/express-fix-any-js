@@ -2,7 +2,7 @@ import hookFolder from "./hookFolder/start.js";
 import addTableName from "./addTableName/start.js";
 
 const startFunc = ({ inFolderNameToInsert, inFileType, jsFilePath,
-    inAlterType, inTargetPath, inTableName
+    inAlterType = "hookFolder", inTargetPath, inTableName
 }) => {
     let fromInternal;
 
