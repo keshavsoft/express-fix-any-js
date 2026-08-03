@@ -2,8 +2,7 @@ import fs from "fs";
 
 import path from "path";
 
-import forImportLine from "./forImportLine/index.js";
-import forUseLine from "./forUseLine/index.js";
+import fileNamesJson from '../fileNames.json' with {type: 'json'};
 
 const alterEndPointsJs = ({ filePath, inTableName }) => {
     try {
@@ -24,19 +23,11 @@ const startFunc = ({ inTableName, inFileType, jsFilePath,
 }) => {
     let fromInternal;
 
-    switch (inFileType) {
-        case "fromEndPointsJs":
+    fromInternal = alterEndPointsJs({
+        filePath: path.join(inTargetPath, fileNamesJson[inFileType]),
+        inTableName
+    });
 
-            fromInternal = alterEndPointsJs({
-                filePath: path.join(inTargetPath, "end-points.js"),
-                inTableName
-            });
-
-            break;
-
-        default:
-            break;
-    };
 
     return fromInternal;
 };
