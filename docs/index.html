@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>express-fix-any-js | Developer Hub</title>
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
   <style>
     :root {
       --bg-dark: #070a13;
@@ -38,7 +41,7 @@
       font-family: var(--font-inter);
       line-height: 1.6;
       overflow-x: hidden;
-      background-image: 
+      background-image:
         radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
         radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.06) 0%, transparent 50%);
     }
@@ -48,13 +51,16 @@
       width: 8px;
       height: 8px;
     }
+
     ::-webkit-scrollbar-track {
       background: var(--bg-dark);
     }
+
     ::-webkit-scrollbar-thumb {
       background: var(--border-color);
       border-radius: 4px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: var(--primary);
     }
@@ -179,7 +185,7 @@
       align-items: center;
       font-family: var(--font-mono);
       font-size: 0.95rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .install-box span {
@@ -231,7 +237,7 @@
       border: 1px solid var(--border-color);
       border-radius: 20px;
       padding: 30px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
       position: relative;
     }
 
@@ -270,7 +276,8 @@
       letter-spacing: 1px;
     }
 
-    .form-group input, .form-group textarea {
+    .form-group input,
+    .form-group textarea {
       background: var(--bg-dark);
       border: 1px solid var(--border-color);
       color: var(--text-main);
@@ -282,7 +289,8 @@
       transition: border-color 0.3s ease;
     }
 
-    .form-group input:focus, .form-group textarea:focus {
+    .form-group input:focus,
+    .form-group textarea:focus {
       border-color: var(--primary);
     }
 
@@ -433,6 +441,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Nav -->
@@ -444,7 +453,11 @@
       <li><a href="#docs">Documentation</a></li>
     </ul>
     <a href="https://github.com/keshavsoft/express-fix-any-js" target="_blank" class="btn-github">
-      <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+        <path
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
       GitHub
     </a>
   </nav>
@@ -453,8 +466,9 @@
   <header>
     <h1>Idempotent & Clean <span>Express Routing</span> Repair</h1>
     <p>
-      An advanced developer utility that dynamically injects missing imports, exports, and router paths 
-      into files with full duplicate protection. Standardizes formatting, preserves hierarchy, and speeds up scaffolding.
+      An advanced developer utility that dynamically injects missing imports, exports, and router paths
+      into files with full duplicate protection. Standardizes formatting, preserves hierarchy, and speeds up
+      scaffolding.
     </p>
     <div class="install-box">
       <div><span>$</span> npm install express-fix-any-js</div>
@@ -466,13 +480,13 @@
   <section class="simulator-section" id="simulator">
     <div class="simulator-title">Interactive Workflow Simulator</div>
     <div class="simulator-subtitle">Experiment with the `alterFile` configuration rules live in your browser.</div>
-    
+
     <div class="simulator-container">
-      
+
       <!-- Controls Panel -->
       <div class="sim-panel">
         <h3>🔧 Simulator Inputs</h3>
-        
+
         <div class="form-group">
           <label>Target File Mock Content</label>
           <textarea id="mock-content" rows="10">import express from "express";
@@ -483,61 +497,64 @@ router.post("/Alter", express.json(), handler);
 
 export { router };</textarea>
         </div>
-        
+
         <div class="form-group">
           <label>Code to Insert (toInsertLine)</label>
           <input type="text" id="insert-line" value="router.post('/Create', express.json(), CreateFunc);">
         </div>
-        
+
         <div class="form-group">
           <label>Duplicate Search Term (duplicationCheck)</label>
           <input type="text" id="dup-check" value="router.post('/Create'">
         </div>
-        
+
         <div class="form-group">
           <label>Insert After Patterns (comma separated)</label>
           <input type="text" id="insert-after" value="router.post('/Alter', const router = express.Router();">
         </div>
       </div>
-      
+
       <!-- Output / Result Panel -->
       <div class="sim-panel">
         <h3>🖥️ Output / Generated File</h3>
-        
+
         <div class="log-panel" id="log-display">
           <!-- Warnings display here -->
         </div>
-        
+
         <div class="code-editor">
           <div class="code-preview" id="code-preview-display"></div>
         </div>
       </div>
-      
+
     </div>
   </section>
 
   <!-- Features Grid -->
   <section class="features-section" id="features">
     <div class="grid-container">
-      
+
       <div class="feature-card">
         <h3>🔒 Double Insertion Protection</h3>
         <p>
-          Using built-in duplication scanners, files are safely guarded. If the code segment already exists in any shape or form, the scan skips modification entirely, keeping your git logs clean.
+          Using built-in duplication scanners, files are safely guarded. If the code segment already exists in any shape
+          or form, the scan skips modification entirely, keeping your git logs clean.
         </p>
       </div>
 
       <div class="feature-card">
         <h3>📏 Architectural Spacing Rules</h3>
         <p>
-          Enforces clean routing aesthetics. Automatically keeps route handlers consecutive without vertical padding lines, but inserts clean spacing after initialization blocks and before module exports.
+          Enforces clean routing aesthetics. Automatically keeps route handlers consecutive without vertical padding
+          lines, but inserts clean spacing after initialization blocks and before module exports.
         </p>
       </div>
 
       <div class="feature-card">
         <h3>🔌 Upstream/Downstream Cascade</h3>
         <p>
-          Acts as the central library core. Powers higher-level packages like `express-fix-endpoints-get-js` and the VS Code Generator Extension to automatically scaffold routes directly from workspace selections.
+          Acts as the central library core. Powers higher-level packages like `express-fix-endpoints-get-js` and the VS
+          Code Generator Extension to automatically scaffold routes directly from workspace selections.
         </p>
       </div>
 
@@ -546,6 +563,42 @@ export { router };</textarea>
 
   <!-- Docs Section -->
   <section class="docs-section" id="docs">
+
+    <div class="simulator-title">
+      📚 Documentation
+    </div>
+
+    <div class="simulator-subtitle">
+      Click any document below to open the corresponding Markdown file.
+    </div>
+
+    <div class="docs-list">
+
+      <a class="doc-link" href="./forAppJs.html">
+        📄 App.js Route Generation
+      </a>
+
+      <a class="doc-link" href="./forEndPointsJs.html">
+        📄 End Points Generation
+      </a>
+
+      <a class="doc-link" href="./forRoutesJs.html">
+        📄 Version Route Generation
+      </a>
+
+      <a class="doc-link" href="./forRoutesJsEnd.html">
+        📄 Table Route Generation
+      </a>
+
+      <a class="doc-link" href="./npm-to-npx.html">
+        🚀 NPM to NPX Guide
+      </a>
+
+    </div>
+
+  </section>
+
+   <section class="docs-section" id="docs">
     <div class="simulator-title">Developer Technical Guides</div>
     <div class="simulator-subtitle">Detailed documentation files created dynamically for code inspection.</div>
     
@@ -618,7 +671,7 @@ export { router };</textarea>
         const isFirstInsert = matchedPattern === insertAfterList[insertAfterList.length - 1];
         const beforeLines = lines.slice(0, matchedIndex + 1);
         const afterLines = lines.slice(matchedIndex + 1);
-        
+
         if (isFirstInsert) {
           lines.splice(matchedIndex + 1, 0, "", toInsertLine);
         } else {
@@ -639,4 +692,5 @@ export { router };</textarea>
     runSimulation();
   </script>
 </body>
+
 </html>
