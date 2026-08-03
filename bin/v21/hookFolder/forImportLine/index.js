@@ -3,33 +3,29 @@ import fs from "fs";
 import defaultFunc from 'pattern-collector-anyjs-story';
 import insertLine from "../insertLine/index.js";
 
-const startFunc = ({ inValueToInsert, inFileType, inJsPath,
+const startFunc = ({ inParts, inFileType, inJsPath,
     presentKey, regexKey, templateKey
 }) => {
 
     try {
-        const folderNameToInsert = inValueToInsert;
         const localJsPath = inJsPath;
 
         const fileContent = fs.readFileSync(localJsPath, 'utf8');
 
-        const story = defaultFunc({
-            fileContent,
-            fileType: inFileType
-        });
+        const story = defaultFunc({ fileContent, fileType: inFileType });
 
-        insertLine({
+        const fromInsertLine = insertLine({
             presentKey,
             linesStory: story.linesStory,
             onlyIndexesValues: story?.onlyIndexesValues,
-            inStory: story,
             fileContent,
             importRegex: story?.extractRegex?.toInsertIndex?.[inFileType]?.[regexKey],
-            filePath: localJsPath, inValueToInsert: folderNameToInsert,
+            filePath: localJsPath,
             inTemplate: story?.reverseTemplates?.[templateKey],
-            inParts: [`${story.variablesConnection}${folderNameToInsert}`, folderNameToInsert],
-            fileType: inFileType
+            inParts
         });
+
+        return fromInsertLine;
 
     } catch (error) {
         console.log("error : ", error);

@@ -1,16 +1,17 @@
 import forImportLine from "./forImportLine/index.js";
 
-const startFunc = ({ importValue, consumeValue, inFileType, jsFilePath }) => {
+const startFunc = ({ inValue, temporaryValue, OutValue,
+    inFileType, jsFilePath }) => {
 
     const fromImportLine = forImportLine({
-        inValueToInsert: importValue,
         inFileType, regexKey: "import",
         templateKey: "importRegex",
-        inJsPath: jsFilePath, presentKey: "importLines"
+        inJsPath: jsFilePath, presentKey: "importLines",
+        inParts: [temporaryValue, inValue]
     });
 
     const fromUseLine = forImportLine({
-        inValueToInsert: consumeValue,
+        inParts: [temporaryValue, OutValue],
         inFileType, regexKey: "consumption",
         templateKey: "consumptionRegex",
         inJsPath: jsFilePath, presentKey: "useLines"

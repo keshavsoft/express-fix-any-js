@@ -7,10 +7,10 @@ function build(template, parts) {
 };
 
 const startFunc = ({ linesStory, fileContent, filePath, importRegex, onlyIndexesValues,
-    inValueToInsert, presentKey, inTemplate, inParts }) => {
+    presentKey, inTemplate, inParts }) => {
 
     const foundUseLinesStory = linesStory[presentKey].find(element => {
-        return element.part2 === inValueToInsert;
+        return element.part2 === inParts[1];
     });
 
     if (foundUseLinesStory) {
@@ -39,6 +39,10 @@ const startFunc = ({ linesStory, fileContent, filePath, importRegex, onlyIndexes
     // lines.splice(insertAtIndex, 0, newLine);
 
     writeToFile({ fileContent, filePath, lines });
+
+    return {
+        newLine, inParts
+    };
     // fs.writeFileSync(filePath, lines.join(fileContent.includes("\r\n") ? "\r\n" : "\n"));
 
 };

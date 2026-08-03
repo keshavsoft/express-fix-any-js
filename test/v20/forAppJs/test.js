@@ -8,11 +8,9 @@ const appJsPath = path.join(__dirname, "app.js");
 
 const output = index({
     jsFilePath: appJsPath,
-    inValueToInsert: "api1",
-    importValue: "api1",
-    consumeValue: "api2",
     inFileType: "fromAppJs",
-    inTargetPath: __dirname
+    inTargetPath: __dirname,
+    inValue: "api1", temporaryValue: "k1", OutValue: "api2"
 });
 
 console.log("aaaaaaa : ", output);
