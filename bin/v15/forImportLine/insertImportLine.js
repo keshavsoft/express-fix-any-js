@@ -1,11 +1,12 @@
 import fs from 'fs';
-import findInsertIndex from "./findInsertIndex.js";
+import findInsertIndex from "../findInsertIndex.js";
+import addLines from "../addLines.js";
 
 function build(template, parts) {
     return template.replace(/\{(\d+)\}/g, (_, i) => parts[i]);
 };
 
-const addLines = ({
+const addLines1 = ({
     inLines,
     inNewLine,
     inInsertAtIndex,
@@ -18,36 +19,6 @@ const addLines = ({
     if (inGapAfter) line = line + "\n";
 
     inLines.splice(inInsertAtIndex, 0, line);
-};
-
-const addLines2 = ({
-    inLines,
-    inNewLine,
-    inInsertAtIndex,
-    inGapBefore = false,
-    inGapAfter = false
-}) => {
-    const items = [];
-
-    if (inGapBefore) items.push("\n");
-    items.push(inNewLine);
-    if (inGapAfter) items.push("\n");
-
-    inLines.splice(inInsertAtIndex, 0, ...items);
-};
-
-const addLines1 = ({ inLines, inNewLine, inInsertAtIndex,
-    inGapBefore = false, inGapAfter = false }) => {
-
-    if (inGapBefore) {
-        inLines.splice(inInsertAtIndex, 0, "\n");
-    };
-
-    inLines.splice(inInsertAtIndex, 0, inNewLine);
-
-    if (inGapAfter) {
-        inLines.splice(inInsertAtIndex, 0, "\n");
-    };
 };
 
 const startFunc = ({ inStory, fileContent, filePath, extractRegex,
@@ -64,7 +35,8 @@ const startFunc = ({ inStory, fileContent, filePath, extractRegex,
 
         const insertStory = findInsertIndex({
             onlyIndexesValues: inStory?.onlyIndexesValues,
-            extractRegex, presentKey: "importLines"
+            extractRegex: extractRegex?.toInsertIndex?.import,
+            presentKey: lineType
         });
 
         addLines({

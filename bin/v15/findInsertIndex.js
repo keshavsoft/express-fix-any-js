@@ -43,7 +43,7 @@ const startFunc = ({ onlyIndexesValues, extractRegex, presentKey }) => {
     const insertStory = {};
 
     // Try each preferred location until one exists.
-    for (const preference of extractRegex?.toInsertIndex?.import) {
+    for (const preference of extractRegex) {
 
         const [group, property] = preference.split(".");
 
@@ -63,10 +63,10 @@ const startFunc = ({ onlyIndexesValues, extractRegex, presentKey }) => {
         }
 
         // Special preference like: first
-        if (preference === "first") {
+        if (preference === "firstLineIndex") {
             insertStory.index = 0;
             break;
-        }
+        };
     };
 
     return insertStory;

@@ -16,7 +16,7 @@ const startFunc = ({ inFolderNameToInsert, inFileType, inJsPath }) => {
 
     insertUseLine({
         inStory: story,
-        fileContent,
+        fileContent, extractRegex: story?.extractRegex,
         filePath: localJsPath, inFolderNameToInsert: folderNameToInsert,
         inTemplate1: story.regexForPullLinesStory.consumptionRegex.reverseTemplate,
         inTemplate: story.reverseTemplates.consumptionRegex,
