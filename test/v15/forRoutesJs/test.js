@@ -8,8 +8,8 @@ const appJsPath = path.join(__dirname, "routes.js");
 
 const output = index({
     jsFilePath: appJsPath,
-    inFolderNameToInsert: "doctors1",
-    inFileType: "fromRoutesJsEnd"
+    inFolderNameToInsert: "v1",
+    inFileType: "fromRoutesJs"
 });
 
 console.log("aaaaaaa : ", output);

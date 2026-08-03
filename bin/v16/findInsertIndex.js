@@ -42,6 +42,10 @@ const startFunc1 = ({ onlyIndexesValues, extractRegex, presentKey }) => {
 const startFunc = ({ onlyIndexesValues, extractRegex, presentKey }) => {
     const insertStory = {};
 
+    if (!extractRegex) {
+        return insertStory;
+    };
+
     // Try each preferred location until one exists.
     for (const preference of extractRegex) {
 
