@@ -1,4 +1,4 @@
-const startFunc = ({ onlyIndexesValues, extractRegex, presentKey }) => {
+const startFunc1 = ({ onlyIndexesValues, extractRegex, presentKey }) => {
     let insertStory = {};
 
     mainLoop: for (const element of extractRegex?.toInsertIndex?.import) {
@@ -34,6 +34,39 @@ const startFunc = ({ onlyIndexesValues, extractRegex, presentKey }) => {
                     break;
             }
         };
+    };
+
+    return insertStory;
+};
+
+const startFunc = ({ onlyIndexesValues, extractRegex, presentKey }) => {
+    const insertStory = {};
+
+    // Try each preferred location until one exists.
+    for (const preference of extractRegex?.toInsertIndex?.import) {
+
+        const [group, property] = preference.split(".");
+
+        // Preference like: importLines.firstLineIndex
+        if (property) {
+            if (onlyIndexesValues[group]?.[property] !== undefined) {
+                insertStory.index = onlyIndexesValues[group][property];
+
+                if (presentKey in onlyIndexesValues && !onlyIndexesValues[presentKey]) {
+                    insertStory.gapBefore = true;
+                }
+
+                break;
+            }
+
+            continue;
+        }
+
+        // Special preference like: first
+        if (preference === "first") {
+            insertStory.index = 0;
+            break;
+        }
     };
 
     return insertStory;

@@ -8,7 +8,7 @@ const appJsPath = path.join(__dirname, "app.js");
 
 const output = index({
     jsFilePath: appJsPath,
-    inFolderNameToInsert: "api2",
+    inFolderNameToInsert: "api",
     inFileType: "fromAppJs"
 });
 
