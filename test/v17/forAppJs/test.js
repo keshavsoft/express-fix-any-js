@@ -10,7 +10,7 @@ const output = index({
     jsFilePath: appJsPath,
     inFolderNameToInsert: "api1",
     inFileType: "fromAppJs",
-    inAlterType: "hookFolder", inTargetPath: __dirname
+    inTargetPath: __dirname
 });
 
 console.log("aaaaaaa : ", output);
