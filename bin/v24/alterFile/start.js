@@ -7,7 +7,21 @@ const startFunc = ({ alterArray, inFileType, inTargetPath
 }) => {
 
     try {
-        const localJsPath = path.join(inTargetPath, fileNamesJson[inFileType]?.fileName);
+        if (!inFileType in fileNamesJson) {
+            return false;
+        };
+
+        if (!"hookTo" in fileNamesJson[inFileType]) {
+            return false;
+        };
+
+        if (!"fileName" in fileNamesJson[fileNamesJson[hookTo]]) {
+            return false;
+        };
+
+        const jsFileName = fileNamesJson[fileNamesJson[hookTo]]?.fileName;
+
+        const localJsPath = path.join(inTargetPath, jsFileName);
 
         let fileContent = fs.readFileSync(localJsPath, 'utf8');
 

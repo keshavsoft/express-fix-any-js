@@ -9,7 +9,8 @@
     },
     "fromRoutesJsEnd": {
         "fileName": "routes.js",
-        "temporaryValue": "routerFrom"
+        "temporaryValue": "routerFrom",
+        "hookTo": "fromEndPointsJs"
     },
     "fromEndPointsJs": {
         "fileName": "end-points.js",
