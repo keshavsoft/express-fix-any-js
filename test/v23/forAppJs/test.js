@@ -6,7 +6,6 @@ import index from "../../../index.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const output = index({
-    inTargetPath: __dirname,
     inFileType: "fromAppJs",
     inTargetPath: __dirname,
     inValue: "api1", OutValue: "api2"
