@@ -1,6 +1,6 @@
 {
   "name": "express-fix-any-js",
-  "version": "1.21.2",
+  "version": "1.24.1",
   "description": "CLI to build for appjs, the endpoints",
   "keywords": [
     "cli",
@@ -10,7 +10,7 @@
     "project-generator"
   ],
   "dependencies": {
-    "pattern-collector-anyjs-story": "^1.21.1"
+    "pattern-collector-anyjs-story": "^1.21.2"
   },
   "type": "module",
   "exports": {
