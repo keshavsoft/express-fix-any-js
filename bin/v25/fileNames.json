@@ -1,4 +1,5 @@
 {
+    "version": "25.2",
     "fromAppJs": {
         "fileName": "app.js",
         "temporaryValue": "routerFrom"
@@ -14,6 +15,21 @@
     },
     "fromEndPointsJs": {
         "fileName": "end-points.js",
-        "temporaryValue": "funcFrom"
+        "temporaryValue": "funcFrom",
+        "hookTo": "fromControllerJs"
+    },
+    "tableGetShowAll": {
+        "fileName": "end-points.js",
+        "temporaryValue": "funcFrom",
+        "hookTo": "fromControllerJs"
+    },
+    "tableGetFind": {
+        "fileName": "end-points.js",
+        "temporaryValue": "funcFrom",
+        "hookTo": "fromControllerJs"
+    },
+    "fromControllerJs": {
+        "fileName": "controller.js",
+        "temporaryValue": "controllerFrom"
     }
 }
