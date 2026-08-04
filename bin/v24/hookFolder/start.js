@@ -1,17 +1,19 @@
 import forImportLine from "./forImportLine/index.js";
 
-const startFunc = ({ inValue, temporaryValue, OutValue,
+import fileNamesJson from '../fileNames.json' with {type: 'json'};
+
+const startFunc = ({ inValue, OutValue,
     inFileType, inTargetPath }) => {
 
     const fromImportLine = forImportLine({
         inFileType, regexKey: "import",
         templateKey: "importRegex",
         inTargetPath, presentKey: "importLines",
-        inParts: [temporaryValue, inValue]
+        inParts: [`${fileNamesJson[inFileType]?.temporaryValue}${inValue}`, inValue]
     });
 
     const fromUseLine = forImportLine({
-        inParts: [temporaryValue, OutValue],
+        inParts: [`${fileNamesJson[inFileType]?.temporaryValue}${inValue}`, OutValue],
         inFileType, regexKey: "consumption",
         templateKey: "consumptionRegex",
         inTargetPath, presentKey: "useLines"

@@ -9,7 +9,7 @@ const output = index({
     inTargetPath: __dirname,
     inFileType: "fromAppJs",
     inTargetPath: __dirname,
-    inValue: "api1", temporaryValue: "k1", OutValue: "api2"
+    inValue: "api1", OutValue: "api2"
 });
 
 console.log("aaaaaaa : ", output);

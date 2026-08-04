@@ -11,7 +11,7 @@ const startFunc = ({ inParts, inFileType, inTargetPath,
 }) => {
 
     try {
-        const localJsPath = path.join(inTargetPath, fileNamesJson[inFileType]);
+        const localJsPath = path.join(inTargetPath, fileNamesJson[inFileType]?.fileName);
 
         const fileContent = fs.readFileSync(localJsPath, 'utf8');
 

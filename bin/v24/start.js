@@ -1,15 +1,15 @@
 import hookFolder from "./hookFolder/start.js";
 import alterFile from "./alterFile/start.js";
 
-const startFunc = ({ inValue, temporaryValue, OutValue,
+const startFunc = ({ inValue, OutValue,
     inFileType, jsFilePath, inTargetPath, alterArray }) => {
 
     let fromInternal;
     let fromAlterFile;
 
-    if (inValue && temporaryValue && OutValue) {
+    if (inValue && OutValue) {
         fromInternal = hookFolder({
-            inValue, temporaryValue, OutValue,
+            inValue, OutValue,
             inFileType, inTargetPath
         });
     };
