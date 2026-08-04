@@ -7,9 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const output = index({
     inTargetPath: __dirname,
-    inTableName: "TAB1",
     inFileType: "fromEndPointsJs",
-    inAlterType: "addTableName"
+    alterArray: [{ key: "<TABLE_NAME>", value: "tab1111111111" }]
 });
 
 console.log("aaaaaaa : ", output);

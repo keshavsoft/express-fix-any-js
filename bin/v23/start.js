@@ -1,11 +1,22 @@
 import hookFolder from "./hookFolder/start.js";
+import alterFile from "./alterFile/start.js";
 
-const startFunc = (args) => {
+const startFunc = ({ inValue, temporaryValue, OutValue,
+    inFileType, jsFilePath, inTargetPath, alterArray }) => {
+
     let fromInternal;
+    let fromAlterFile;
 
-    fromInternal = hookFolder(args);
+    if (inValue && temporaryValue && OutValue) {
+        fromInternal = hookFolder({
+            inValue, temporaryValue, OutValue,
+            inFileType, inTargetPath
+        });
+    };
 
-    return fromInternal;
+    fromAlterFile = alterFile({ alterArray, inFileType, inTargetPath });
+
+    return { fromInternal, fromAlterFile };
 };
 
 export default startFunc;
