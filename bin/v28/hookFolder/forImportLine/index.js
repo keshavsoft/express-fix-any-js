@@ -2,15 +2,19 @@ import fs from "fs";
 import path from "path";
 
 import defaultFunc from 'pattern-collector-anyjs-story';
+import { fileNamesJson as fromNpm } from "pattern-collector-base-files";
+
 import insertLine from "../insertLine/index.js";
 
-import fileNamesJson from '../../fileNames.json' with {type: 'json'};
+// import fileNamesJson from '../../fileNames.json' with {type: 'json'};
 
 const startFunc = ({ inParts, inFileType, inTargetPath,
-    presentKey, regexKey, templateKey
+    presentKey, regexKey, templateKey, inConsiderKey
 }) => {
 
     try {
+        const fileNamesJson = fromNpm();
+
         const localJsPath = path.join(inTargetPath, fileNamesJson[inFileType]?.fileName);
 
         const fileContent = fs.readFileSync(localJsPath, 'utf8');
@@ -25,7 +29,7 @@ const startFunc = ({ inParts, inFileType, inTargetPath,
             importRegex: story?.extractRegex?.toInsertIndex?.[inFileType]?.[regexKey],
             filePath: localJsPath,
             inTemplate: story?.reverseTemplates?.[templateKey],
-            inParts
+            inParts, inConsiderKey
         });
 
         return fromInsertLine;

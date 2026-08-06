@@ -7,10 +7,12 @@ function build(template, parts) {
 };
 
 const startFunc = ({ linesStory, fileContent, filePath, importRegex, onlyIndexesValues,
-    presentKey, inTemplate, inParts }) => {
+    presentKey, inTemplate, inParts, inConsiderKey }) => {
 
     const foundUseLinesStory = linesStory[presentKey].find(element => {
-        return element.part2 === inParts[1];
+        if (inConsiderKey in element) {
+            return element[inConsiderKey] === inParts[1];
+        };
     });
 
     if (foundUseLinesStory) {
@@ -36,15 +38,11 @@ const startFunc = ({ linesStory, fileContent, filePath, importRegex, onlyIndexes
         inGapAfter: insertStory?.gapAfter
     });
 
-    // lines.splice(insertAtIndex, 0, newLine);
-
     writeToFile({ fileContent, filePath, lines });
 
     return {
         newLine, inParts
     };
-    // fs.writeFileSync(filePath, lines.join(fileContent.includes("\r\n") ? "\r\n" : "\n"));
-
 };
 
 export default startFunc;
