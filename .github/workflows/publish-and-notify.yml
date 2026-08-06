@@ -1,8 +1,6 @@
 name: Publish Package to npmjs with Notification
 
 on:
-  release:
-    types: [published]
   workflow_dispatch:
 
 jobs:

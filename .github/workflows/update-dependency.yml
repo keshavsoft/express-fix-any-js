@@ -1,8 +1,6 @@
 name: Update dependency
 
 on:
-  repository_dispatch:
-    types: [dependency-updated]
   workflow_dispatch:
 
 jobs:
@@ -60,6 +58,14 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Generate Summary
+        if: always()
+        run: |
+          echo "### 🔄 Dependency Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "* **Repository**: [${{ github.repository }}](https://github.com/${{ github.repository }})" >> $GITHUB_STEP_SUMMARY
+          echo "* **Status**: ${{ job.status }} ✅" >> $GITHUB_STEP_SUMMARY
+          echo "* **Changes Detected & Pushed**: \`${{ steps.check.outputs.changed || 'false' }}\`" >> $GITHUB_STEP_SUMMARY
 
   notify-dependents:
     needs: update
