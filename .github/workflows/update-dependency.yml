@@ -31,7 +31,16 @@ jobs:
 
       - run: npm install
 
-      - run: npm install express-check-any-for-import@latest
+      - name: Update dependency
+        run: |
+          PACKAGE_NAME="${{ github.event.client_payload.package }}"
+          if [ -n "$PACKAGE_NAME" ]; then
+            echo "Updating package: $PACKAGE_NAME"
+            npm install ${PACKAGE_NAME}@latest
+          else
+            echo "No package specified, updating default dependency express-check-any-for-import..."
+            npm install express-check-any-for-import@latest
+          fi
 
       - name: Check for updates
         id: check
