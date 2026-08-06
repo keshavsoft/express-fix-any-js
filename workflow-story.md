@@ -3,8 +3,8 @@
 This document tells the story of how our package release and dependency notification workflow is structured. 
 
 We split the logic into two separate, modular workflow files:
-1. **[npm-publish.yml](file:///d:/KeshavSoftRepos/2026-06-28/express-fix-any-js/.github/workflows/npm-publish.yml)**: The **Caller Workflow** that builds, tests, and publishes the package.
-2. **[notify-dependents.yml](file:///d:/KeshavSoftRepos/2026-06-28/express-fix-any-js/.github/workflows/notify-dependents.yml)**: The **Callee Workflow** that handles post-publish notifications.
+1. **[npm-publish.yml](file:///d:/KeshavSoftRepos/6aug-1/express-fix-any-js/.github/workflows/npm-publish.yml)**: The **Caller Workflow** that builds, tests, and publishes the package.
+2. **[notify.yml](file:///d:/KeshavSoftRepos/6aug-1/express-fix-any-js/.github/workflows/notify.yml)**: The **Callee Workflow** that handles post-publish notifications.
 
 ---
 
@@ -60,7 +60,7 @@ Once the build job succeeds, the `publish-npm` job executes:
 - It publishes the updated package version using `npm publish`.
 
 ### Step 4: Call Notification Workflow
-Upon successful publication, the caller workflow uses GitHub's `workflow_call` mechanism to invoke [notify-dependents.yml](file:///d:/KeshavSoftRepos/2026-06-28/express-fix-any-js/.github/workflows/notify-dependents.yml). It forwards the required secret `REPO_DISPATCH_TOKEN` so that the callee workflow can authorize itself.
+Upon successful publication, the caller workflow uses GitHub's `workflow_call` mechanism to invoke [notify.yml](file:///d:/KeshavSoftRepos/6aug-1/express-fix-any-js/.github/workflows/notify.yml). It forwards the required secret `REPO_DISPATCH_TOKEN` so that the callee workflow can authorize itself.
 
 ### Step 5: Registry Replication Delay
 Because NPM registries can take a few seconds to replicate metadata globally, the callee workflow pauses for **15 seconds** (`sleep 15`). This ensures that when dependent projects trigger their build, the newly published package version is available for installation.
