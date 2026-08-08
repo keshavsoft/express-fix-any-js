@@ -1,33 +1,26 @@
-name: Node.js Package
+name: NPM Publish and Notify
 
 on:
   workflow_dispatch:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci
+permissions:
+  contents: write
 
+jobs:
   check-version:
-    needs: build
-    uses: ./.github/workflows/npm-check.yml
+    uses: ./.github/workflows/_npm-check.yml
 
   publish-pkg:
-    needs: [build, check-version]
+    needs: check-version
     if: needs.check-version.outputs.already_published == 'false'
-    uses: ./.github/workflows/npm-publish-reusable.yml
+    uses: ./.github/workflows/_npm-publish-reusable.yml
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   summary-skipped:
     needs: check-version
     if: needs.check-version.outputs.already_published == 'true'
-    uses: ./.github/workflows/npm-summary.yml
+    uses: ./.github/workflows/_npm-summary.yml
     with:
       package_name: ${{ needs.check-version.outputs.package_name }}
       before_version: ${{ needs.check-version.outputs.before_version }}
@@ -37,7 +30,7 @@ jobs:
   summary-published:
     needs: [check-version, publish-pkg]
     if: always() && needs.check-version.outputs.already_published == 'false' && needs.publish-pkg.result == 'success'
-    uses: ./.github/workflows/npm-summary.yml
+    uses: ./.github/workflows/_npm-summary.yml
     with:
       package_name: ${{ needs.check-version.outputs.package_name }}
       before_version: ${{ needs.check-version.outputs.before_version }}
@@ -47,7 +40,7 @@ jobs:
   notify-dependents:
     needs: [check-version, publish-pkg]
     if: always() && needs.check-version.outputs.already_published == 'false' && needs.publish-pkg.result == 'success'
-    uses: ./.github/workflows/notify.yml
+    uses: ./.github/workflows/_notify.yml
     with:
       package_name: ${{ needs.check-version.outputs.package_name }}
       repositories: "keshavsoft/express-fix-endpoints-get-js keshavsoft/template-provider keshavsoft/ks-ai-insert-table"

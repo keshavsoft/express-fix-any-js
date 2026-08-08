@@ -13,6 +13,9 @@
     "pattern-collector-anyjs-story": "^1.24.9",
     "pattern-collector-base-files": "^1.4.3"
   },
+  "devDependencies": {
+    "ks-delete-workflow-runs": "^1.0.0"
+  },
   "type": "module",
   "exports": {
     ".": "./index.js"

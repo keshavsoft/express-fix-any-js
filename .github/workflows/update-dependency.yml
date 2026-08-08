@@ -100,7 +100,7 @@ jobs:
   notify-dependents:
     needs: update
     if: always() && needs.update.outputs.changed == 'true' && needs.update.result == 'success'
-    uses: ./.github/workflows/notify.yml
+    uses: ./.github/workflows/_notify.yml
     with:
       package_name: "express-fix-any-js"
       repositories: "keshavsoft/express-fix-endpoints-get-js keshavsoft/template-provider keshavsoft/ks-ai-insert-table"
