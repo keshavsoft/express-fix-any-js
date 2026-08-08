@@ -1,13 +1,18 @@
 import hookFolder from "./hookFolder/start.js";
 import alterFile from "./alterFile/start.js";
 
-import { fileNamesJson as fromNpm } from "pattern-collector-base-files";
+import {
+    fileNamesJson as fromNpm,
+    outputStructureJson as getOutputStructureJson
+} from "pattern-collector-base-files";
 
 import returnPath from "./returnPath.js";
 import checkFile from "./checkFile.js";
 
 const startFunc = ({ inValue, OutValue,
     inFileType, inTargetPath, alterArray }) => {
+
+    const outputStructureJson = { ...getOutputStructureJson() };
 
     let fromInternal;
     let fromAlterFile;
@@ -18,10 +23,10 @@ const startFunc = ({ inValue, OutValue,
     const localJsPath = returnPath({ inFileNameStory: localFileNameStory, inTargetPath });
 
     if (!checkFile(localJsPath)) {
-        return {
-            KTF: false,
-            KReason: `file not found : ${localJsPath}`
-        }
+        outputStructureJson.KTF = false;
+        outputStructureJson.KReason = `file not found : ${localJsPath}`;
+
+        return outputStructureJson;
     };
 
     if (inValue && OutValue) {
