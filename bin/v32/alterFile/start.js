@@ -28,9 +28,11 @@ const startFunc = ({ alterArray, inFileType, inTargetPath, inValue }) => {
 
         let fileContent = fs.readFileSync(localJsPath, 'utf8');
 
-        alterArray.forEach(element => {
-            fileContent = fileContent.replaceAll(element.key, element.value);
-        });
+        if (alterArray) {
+            alterArray.forEach(element => {
+                fileContent = fileContent.replaceAll(element.key, element.value);
+            });
+        };
 
         fs.writeFileSync(localJsPath, fileContent);
 
