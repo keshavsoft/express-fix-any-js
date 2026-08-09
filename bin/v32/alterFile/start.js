@@ -10,15 +10,16 @@ const startFunc = ({ alterArray, inFileType, inTargetPath, inValue }) => {
 
         const fileNamesJson = fromNpm();
 
-        if (!inFileType in fileNamesJson) {
+        if (!(inFileType in fileNamesJson)) {
             return false;
         };
 
-        if (!"hookTo" in fileNamesJson[inFileType]) {
+        if (!("hookTo" in fileNamesJson[inFileType])) {
             return false;
         };
+        // console.log("lllllllllllll : ", fileNamesJson[inFileType]);
 
-        if (!"fileName" in fileNamesJson[fileNamesJson[inFileType]?.hookTo]) {
+        if (!("fileName" in fileNamesJson[fileNamesJson[inFileType]?.hookTo])) {
             return false;
         };
 
