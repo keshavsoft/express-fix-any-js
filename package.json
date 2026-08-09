@@ -1,6 +1,6 @@
 {
   "name": "express-fix-any-js",
-  "version": "1.32.13",
+  "version": "1.32.14",
   "description": "CLI to build for appjs, the endpoints",
   "keywords": [
     "cli",
@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "pattern-collector-anyjs-story": "^1.24.10",
-    "pattern-collector-base-files": "^1.10.2"
+    "pattern-collector-base-files": "^1.10.3"
   },
   "devDependencies": {
     "ks-delete-workflow-runs": "^1.0.0"
