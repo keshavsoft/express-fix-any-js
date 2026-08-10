@@ -23,11 +23,9 @@ const startFunc = ({ alterArray, inFileType, inTargetPath, inValue }) => {
             return false;
         };
 
-        const localFileName = fileNamesJson[fileNamesJson[inFileType]?.hookTo]?.fileName;
+        const jsFileName = fileNamesJson[fileNamesJson[inFileType]?.hookTo]?.fileName;
 
-        const localJsPath = path.join(inTargetPath, inValue, localFileName);
-
-        // console.log("lllllllllllll : ", localJsPath, localJsPath);
+        const localJsPath = path.join(inTargetPath, inValue, jsFileName);
 
         let fileContent = fs.readFileSync(localJsPath, 'utf8');
 
